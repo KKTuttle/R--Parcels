@@ -1,14 +1,15 @@
 require('sinatra')
 require('sinatra/reloader')
 require('pry')
-require('./lib/parcels')
+require('launchy')
+require('./lib/Parcels')
 also_reload('lib/**/*.rb')
 
 get('/') do
   erb(:index)
 end
 
-get('results') do
+get ('/results') do
   width = params.fetch('width').to_i
   length = params.fetch('length').to_i
   height = params.fetch('height').to_i
